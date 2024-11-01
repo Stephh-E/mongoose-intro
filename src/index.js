@@ -4,6 +4,8 @@
 // Get the port
 // Tell the server to listen to web traffic
 
+require("dotenv").config();
+
 // Server is configured in this file, not in index.js
 const {app} = require("./server.js");
 const { dbconnect } = require("./utils/database.js");
@@ -17,5 +19,5 @@ app.listen(PORT, async () => {
     await dbConnect();
 
     // Server is running if we reach this point in the code!
-    console.log("Server is running on port" + PORT);
-})
+    console.log("Server is running on port " + PORT);
+});
