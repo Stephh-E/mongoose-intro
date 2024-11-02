@@ -1,6 +1,7 @@
 const express = require("express");
 
 const { PostModel } = require("../models/PostModel");
+const PostCrud = require('../utils/crud/PostCrud');
 const { findOnePost } = require("../utils/crud/PostCrud");
 
 const router = express.Router();

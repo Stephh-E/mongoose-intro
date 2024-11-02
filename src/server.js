@@ -1,32 +1,37 @@
 // Purpose:
-// COnfigure the server, e.g.
-// - routes 
-// - middleware
-// - CORS
+// Configure the server, eg.
+// - routes
+// - middleware 
+// - CORS 
 // - debug logger setups
-// - connections to databases 
-// - connections to file storage
+// - connections to databases
+// - connections to file storage 
 
 const express = require("express");
 const app = express();
 
 // Server app configuration goes here
-// middleware, routes etcç
+// middleware, routes, etc 
 
-//app.verb(path, callback);
+app.use(express.json());
+
+// app.verb(path, callback);
+// http://localhost:8080/
 app.get("/", (request, response) => {
-    // response.send("<h1>Hello, world!</h1>");
+	// response.send("<h1>Hello, world!</h1>");
 
-    response.json({
-        message:"Hello world!"
-    });
-
+	response.json({
+		message:"Hello world!"
+	});
 });
 
-//Server app configuration is finished by this point 
+const PostController = require("./controllers/PostController.js");
+app.use("/posts", PostController);
 
-// Export the app so that other files can control when the server 
-// starts and stops
+// Server app configuration is finished by this point 
+
+// Export the app so that other files can control when the server
+// starts and stops 
 module.exports = {
-    app
+	app
 }

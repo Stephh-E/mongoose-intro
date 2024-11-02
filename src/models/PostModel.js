@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { LocalizedContentSchema } = require(./LocalizedContent");
 
 // 1. Make a schema 
 
@@ -15,7 +16,11 @@ const PostSchema = new mongoose.Schema({
         type: Date,
         default: Date.now //Mongoose will run Date.now eveerytime we make a doc
     },
-
+	author: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "User",
+		required: true
+    }
 });
 
 // 2. Make a model based on the schema
@@ -24,4 +29,4 @@ const PostModel = mongoose.model("Post", PostSchema);
 // 3. Export the model for the rest of our code to use
 module.exports = {
     PostModel 
-}
+};
