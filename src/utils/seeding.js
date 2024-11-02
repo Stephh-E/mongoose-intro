@@ -7,7 +7,7 @@ require("dotenv").config();
 async function seed (){
 	// await dbConnect();
 
-	let newUser = await createUser("alexh", true, "alex@bigfootds.com");
+	let newUser = await createUser("Steph", true, "steph@hotmail.com");
 	
 	await createPost(
 		"Example title", 

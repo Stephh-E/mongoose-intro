@@ -1,6 +1,6 @@
 // Provide CRUD functions for the PostModel
 
-const { PostModel } = require("../models/PostModel.js");
+const { PostModel } = require("../../models/PostModel");
 
 async function createPost (title, content = null) {
     let result = await PostModel.create({
